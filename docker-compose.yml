@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  rebellion-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rebellion-bot
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    volumes:
+      - ./data:/app/.rebellion_bot
+      - ./reports:/app/rebellion_reports
+      - ./logs:/app/logs
+    environment:
+      - TZ=UTC
+      - PYTHONUNBUFFERED=1
+    command: python3 rebellion_bot.py
+    stdin_open: true
+    tty: true
+    ports:
+      - "5000:5000"
+      - "8080:8080"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
