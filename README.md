@@ -9,3 +9,5 @@ Rebellion Bot-V1
 
 
 # Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Iankulani/Rebellion-Bot-V1&type=Date)](https://star-history.com/#Iankulani/Rebellion-Bot-V1&Date)
